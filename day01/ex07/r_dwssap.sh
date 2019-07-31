@@ -16,4 +16,3 @@ cat /etc/passwd | sed '/^#/ d' | awk 'NR%2==0' | awk -F":" '{print $1}' | rev | 
     fi;
 done;
 printf ".";
-
