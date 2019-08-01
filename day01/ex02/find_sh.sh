@@ -1,2 +1,2 @@
 #!/bin/sh
-find . -name "*.sh" -execdir sh -c 'printf "%s\n" "${0%.*}"' {} ';'
+find . -name "*.sh" -type f -execdir sh -c 'printf "%s\n" "${0%.*}"' {} ';'
