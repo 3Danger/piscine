@@ -1,53 +1,92 @@
-void ft_print_combn(int n) {
-    char digits[n];
-    char out;
-    for(int i = 0; i < 9; i += 1) {
-        digits[i] = '0' + i;
-    }
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_print_combn.c                                 .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/08/02 01:34:23 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/02 02:30:01 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
 
-    for(int i = 0; i < 9; i += 1) {
-        write(1, &digits[i], 1);
-    }
+#include <unistd.h>
 
-    char max_digits[n];
-    for(int i = 0; i < n; i += 1) {
-        max_digits[n - i - 1] = '9' - i;
-    }
-
-    for(int i = 0; i < n; i += 1) {
-        write(1, &max_digits[i], 1);
-    }
-
-
-    int is_first = 0;
-    while(digits[0] <= max_digits[0]) {
-        while(digits[1] <= max_digits[1]) {
-            while(n3 <= '9') {
-                if(n1 < n2  && n2 < n3) {
-                    if (is_first != 0) {
-                        char out = ','; 
-                        write(1, &out, 1);
-                        out = ' '; 
-                        write(1, &out, 1);
-                    } else {
-                        is_first=1;
-                    }
-                    if (n1 != n2 && n1 != n3 && n2 != n3 ) {
-                        write(1, &n1, 1);
-                        write(1, &n2, 1);
-                        write(1, &n3, 1);
-                    }
-                }
-                n3 = n3 + 1;
-            }
-            n3 = '0';
-            n2 = n2 + 1;
-        }
-        n2 = '0';
-        n1 = n1 + 1;
-    }
+int		check_digits_format(short* digits, short nb_digits)
+{
+	int i = 0;
+	int success = 1;
+	while(i < --nb_digits)
+	{
+		if (digits[i] >= digits[i + 1]) 
+		{
+			success = 0;
+		}
+		i += 1;
+	}
+	return success;
 }
 
-int main(void) {
-    ft_print_combn(3);
+void 	ft_show_digits(short* digits, short nb_digits)
+{
+	char	out;
+	int		i;
+	i = 0;
+
+	// TODO : check that all digits are inferiors each others
+	while(i < nb_digits)
+	{
+		out = digits[i] + '0';
+		write(1, &out, 1);		
+		i += 1;
+	}
+	out = ' ';
+	write(1, &out, 1);
+}
+
+void	proceed(short* digits, short nx, short nb_digits)
+{
+	char	out;
+	if (nx > nb_digits) 
+	{
+		return;
+	}
+	while (digits[nx] < 9 - nx)
+	{
+		if (check_digits_format(digits, nb_digits)) 
+		{	
+			proceed(digits, nx + 1, nb_digits);
+			ft_show_digits(digits, nb_digits);
+		}
+		
+			   	digits[nx - 1] += 1; 
+	}
+	digits[nx] = 0;
+}
+
+void	ft_print_combn(int nb_digits)
+{
+	short 	digits[nb_digits];
+	char 	out;
+	short 	i;
+   	i = 0;
+	while(i < nb_digits)
+	{
+		digits[i] = i;
+		i += 1;
+	}
+	i = 0;
+	while (i < nb_digits)
+	{
+		out = digits[i] + '0';
+		// write(1, &out, 1);		
+		i += 1;
+	}
+	proceed(digits, 0, nb_digits);
+}
+
+int main(void) 
+{
+	ft_print_combn(2);
 }
