@@ -11,82 +11,90 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int	pow(int x, int y)
-{
-	int xx;
-	int yy;
-	short negate;
-	xx = x;
-	yy = y;
-	if (y < 0) {
-		yy = y * -1;
-	} else if (y == 0)	{
-		return 1;
-	}
-    yy -= 1;	
-	while (yy > 0)
-	{
-		xx *= xx;
-		yy -= 1;
-	}
-	return xx;
-}
+#include <unistd.h>
 
-void	ft_print_digits(short * digits, int n)
-{
-	char	current;
-	int 	i; 
-	i = 0;
-	while (i < n)
-	{
-		current = '0' + digits[i];
-		write(1, &current, 1);
-		i++;
-	}
-}
+typedef enum { false, true } bool;
 
-int		check_all_digits(short *digits, int n)
+bool	ft_check_combn_digits(short *digits, int n)
 {
-	int		i;
-	int 	s;
-	
-	i = 0;
-	s = 1;
-	while(i < n)
+	int	x;
+
+	x = 0;
+	while (x < n - 1)
 	{
-		if (i > 0) {
-			if (digits[i - 1] >= digits[i]) {
-				s = 0;		
-			}
+		if (digits[x] >= digits[x + 1])
+		{
+			return false;
 		}
-		i += 1;
+		x += 1;
 	}
-	return s;
+	return true;
+}
+
+void	ft_print_combn_digits(short *digits, int n, bool isfirst) 
+{
+	int	x;
+	char	out;
+	
+	x = 0;
+	if (!isfirst)
+	{
+		write(1, ", ", 2);
+	}
+	while (x < n)
+	{
+		out = digits[x] + '0';
+		write(1, &out, 1);
+		x += 1;
+	}
+}
+
+void	ft_init_combn_digits(short *digits, int n)
+{
+	int		x;
+
+	x = 0;
+	while (x < n)
+	{
+		digits[x] = x;
+		x += 1;
+	}
+}
+
+void	ft_increment_combn_digits(short *digits, int n, int current_digit)
+{
+	int		x;
+	
+	digits[current_digit] += 1;
+	if (digits[current_digit] == 10)
+	{
+		digits[current_digit] = 0;
+		ft_increment_combn_digits(digits, n, current_digit - 1);
+	} else {
+		return;
+	}
 }
 
 void	ft_print_combn(int n)
 {
 	short 	digits[n];
-	int		i;
 
-	i = 0;
-	while (i < n)
+	ft_init_combn_digits(digits, n);
+	ft_print_combn_digits(digits, n, true);
+	while (digits[0] <= (10 - n))
 	{
-		digits[i] = i;
-		i++;
+		ft_increment_combn_digits(digits, n, n - 1);
+		if (ft_check_combn_digits(digits, n))
+		{
+			ft_print_combn_digits(digits, n, false);			
+		}
 	}
-	ft_print_digits(digits, n);
-	
-
 }
 
-int		main(void)
+
+
+int	main(void)
 {
-	ft_print_combn(2);
-	
-	short digits[2];
-
-	digits[0] = 7;
-	digits[1] = 9;
-	printf("%d ", check_all_digits(digits, 2));
+	ft_print_combn(3);
 }
+
