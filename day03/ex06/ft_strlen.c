@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_print_alphabet.c                              .::    .:/ .      .::   */
+/*   ft_strlen.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/01 13:07:20 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/03 12:58:46 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/03 17:28:23 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/03 17:29:50 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+int		ft_strlen(char *str)
 {
-	char	current;
+	int		i;
 
-	current = 'a';
-	while (current <= 'z')
+	i = 0;
+	while (str[i++])
 	{
-		write(1, &current, 1);
-		current += 1;
 	}
+	return (i);
 }

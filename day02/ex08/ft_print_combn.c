@@ -5,88 +5,88 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/02 01:34:23 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/02 02:30:01 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/03 13:05:57 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/03 15:51:57 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int		check_digits_format(short* digits, short nb_digits)
+int	pow(int x, int y)
 {
-	int i = 0;
-	int success = 1;
-	while(i < --nb_digits)
-	{
-		if (digits[i] >= digits[i + 1]) 
-		{
-			success = 0;
-		}
-		i += 1;
+	int xx;
+	int yy;
+	short negate;
+	xx = x;
+	yy = y;
+	if (y < 0) {
+		yy = y * -1;
+	} else if (y == 0)	{
+		return 1;
 	}
-	return success;
+    yy -= 1;	
+	while (yy > 0)
+	{
+		xx *= xx;
+		yy -= 1;
+	}
+	return xx;
 }
 
-void 	ft_show_digits(short* digits, short nb_digits)
+void	ft_print_digits(short * digits, int n)
 {
-	char	out;
-	int		i;
+	char	current;
+	int 	i; 
 	i = 0;
-
-	// TODO : check that all digits are inferiors each others
-	while(i < nb_digits)
+	while (i < n)
 	{
-		out = digits[i] + '0';
-		write(1, &out, 1);		
+		current = '0' + digits[i];
+		write(1, &current, 1);
+		i++;
+	}
+}
+
+int		check_all_digits(short *digits, int n)
+{
+	int		i;
+	int 	s;
+	
+	i = 0;
+	s = 1;
+	while(i < n)
+	{
+		if (i > 0) {
+			if (digits[i - 1] >= digits[i]) {
+				s = 0;		
+			}
+		}
 		i += 1;
 	}
-	out = ' ';
-	write(1, &out, 1);
+	return s;
 }
 
-void	proceed(short* digits, short nx, short nb_digits)
+void	ft_print_combn(int n)
 {
-	char	out;
-	if (nx > nb_digits) 
-	{
-		return;
-	}
-	while (digits[nx] < 9 - nx)
-	{
-		if (check_digits_format(digits, nb_digits)) 
-		{	
-			proceed(digits, nx + 1, nb_digits);
-			ft_show_digits(digits, nb_digits);
-		}
-		
-			   	digits[nx - 1] += 1; 
-	}
-	digits[nx] = 0;
-}
+	short 	digits[n];
+	int		i;
 
-void	ft_print_combn(int nb_digits)
-{
-	short 	digits[nb_digits];
-	char 	out;
-	short 	i;
-   	i = 0;
-	while(i < nb_digits)
+	i = 0;
+	while (i < n)
 	{
 		digits[i] = i;
-		i += 1;
+		i++;
 	}
-	i = 0;
-	while (i < nb_digits)
-	{
-		out = digits[i] + '0';
-		// write(1, &out, 1);		
-		i += 1;
-	}
-	proceed(digits, 0, nb_digits);
+	ft_print_digits(digits, n);
+	
+
 }
 
-int main(void) 
+int		main(void)
 {
 	ft_print_combn(2);
+	
+	short digits[2];
+
+	digits[0] = 7;
+	digits[1] = 9;
+	printf("%d ", check_all_digits(digits, 2));
 }

@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_print_alphabet.c                              .::    .:/ .      .::   */
+/*   ft_ultimate_div_mod.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/01 13:07:20 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/03 12:58:46 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/03 17:20:22 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/03 17:22:18 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	char	current;
+	int div;
 
-	current = 'a';
-	while (current <= 'z')
-	{
-		write(1, &current, 1);
-		current += 1;
-	}
+	div = *a / *b;
+	*b = *a % *b;
+	*a = div;
 }
