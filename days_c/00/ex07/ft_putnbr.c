@@ -11,39 +11,58 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-void	ft_putbnr(int digits_nb, int nb)
-{
-	char	digits[digits_nb];
-	int		current_digit;
-	int		i;
+#include <unistd.h>
 
-	current_digit = 0;
-	i = nb;
-	while (i > 0)
+int	ft_pow_ten(int x)
+{
+	if (x <= 0)
 	{
-		digits[current_digit] = '0' + (i % 10);
-		current_digit += 1;
-		i /= 10;
+		return 1;
 	}
-	i = current_digit;
-	while (i > 0)
+	while (x > 0)
 	{
-		write(1, &digits[i - 1], 1);
-		i -= 1;
+		return (ft_pow_ten(x - 1) * 10);
 	}
+}
+
+int	ft_count_digits(int nb)
+{
+	int	digits;
+
+	if (nb == 0)
+		return 1;
+	digits = 0;
+	while (nb > 0)
+	{
+		nb /= 10;
+		digits += 1;
+	}
+	return digits;
 }
 
 void	ft_putnbr(int nb)
 {
-	int		i;
-	int		digits_nb;
+	int	digits;
+	char	digit;
 
-	i = nb;
-	digits_nb = 0;
-	while (i > 0)
+	if (nb < 0)
 	{
-		digits_nb += 1;
-		i /= 10;
+		write(1, "-", 1);
+		nb *= -1;
 	}
-	ft_putbnr(digits_nb, nb);
+
+	digits = ft_count_digits(nb) - 1;
+	while(digits >= 0)
+	{
+		digit = '0' +  nb / ft_pow_ten(digits);
+		nb %=  ft_pow_ten(digits);
+		write(1, &digit, 1);
+		digits -= 1;
+	}
+}
+
+int	main(void)
+{
+	ft_putnbr(-200);
+	ft_putnbr(98521);
 }

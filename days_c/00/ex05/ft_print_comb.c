@@ -50,8 +50,3 @@ void	ft_print_comb(void)
 		n2 = '0';
 	}
 }
-
-int		main(void)
-{
-	ft_print_comb();
-}

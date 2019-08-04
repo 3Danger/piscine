@@ -11,7 +11,9 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-void	ft_print_numbers(short n1, short n2)
+#include <unistd.h>
+
+void	ft_print_numbers(unsigned short n1, unsigned short n2)
 {
 	char out1;
 	char out2;
@@ -39,8 +41,8 @@ void	ft_print_numbers(short n1, short n2)
 
 void	ft_print_comb2(void)
 {
-	short n1;
-	short n2;
+	unsigned short n1;
+	unsigned short n2;
 
 	n1 = 0;
 	n2 = 1;
