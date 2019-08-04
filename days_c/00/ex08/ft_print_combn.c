@@ -103,7 +103,7 @@ void	ft_print_combn(int n)
 	}
 	max_sum = ft_sum_combn_digits(max_digits, n);
 	ft_print_combn_digits(digits, n, true);
-	while (ft_sum_combn_digits(digits, n) <= max_sum)
+	while (ft_sum_combn_digits(digits, n) < max_sum)
 	{
 		ft_increment_combn_digits(digits, n, n - 1);
 		if (ft_check_combn_digits(digits, n))
@@ -117,6 +117,6 @@ void	ft_print_combn(int n)
 
 int	main(void)
 {
-	ft_print_combn(9);
+	ft_print_combn(3);
 }
 
