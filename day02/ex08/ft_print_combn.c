@@ -19,14 +19,15 @@ bool	ft_check_combn_digits(short *digits, int n)
 {
 	int	x;
 
-	x = 0;
-	while (x < n - 1)
+	x = n - 1;
+	while (x > 0)
 	{
-		if (digits[x] >= digits[x + 1])
+		if (digits[x - 1] >=  digits[x])
 		{
+			digits[x] = digits[x - 1]; 
 			return false;
 		}
-		x += 1;
+		x -= 1;
 	}
 	return true;
 }
@@ -49,18 +50,6 @@ void	ft_print_combn_digits(short *digits, int n, bool isfirst)
 	}
 }
 
-void	ft_init_combn_digits(short *digits, int n)
-{
-	int		x;
-
-	x = 0;
-	while (x < n)
-	{
-		digits[x] = x;
-		x += 1;
-	}
-}
-
 void	ft_increment_combn_digits(short *digits, int n, int current_digit)
 {
 	int		x;
@@ -75,13 +64,46 @@ void	ft_increment_combn_digits(short *digits, int n, int current_digit)
 	}
 }
 
+int	ft_sum_combn_digits(short *digits, int n)
+{
+	int	x;
+	int	sum;
+	int	ten;
+	
+	ten = 1;
+	sum = 0;
+	x = n - 1;
+	while (x >= 0)
+	{
+		sum += ten * digits[x];
+		x -= 1;
+		ten *= 10;
+	}
+	return sum;
+}
+
 void	ft_print_combn(int n)
 {
 	short 	digits[n];
+	short	max_digits[n];
+	int	x;
+	int	max_sum;
 
-	ft_init_combn_digits(digits, n);
+	x = 0;
+	while (x < n)
+	{
+		digits[x] = x;
+		x += 1;
+	}
+	x -= 1;
+	while(x >= 0)
+	{
+		max_digits[x] = (10 - n + x);
+		x -= 1;
+	}
+	max_sum = ft_sum_combn_digits(max_digits, n);
 	ft_print_combn_digits(digits, n, true);
-	while (digits[0] <= (10 - n))
+	while (ft_sum_combn_digits(digits, n) <= max_sum)
 	{
 		ft_increment_combn_digits(digits, n, n - 1);
 		if (ft_check_combn_digits(digits, n))
@@ -95,6 +117,6 @@ void	ft_print_combn(int n)
 
 int	main(void)
 {
-	ft_print_combn(3);
+	ft_print_combn(9);
 }
 
