@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/05 13:19:51 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/05 13:39:25 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/05 14:08:06 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,6 @@ typedef enum {false, true} bool;
 
 struct memory_region
 {
-	void*			addr;
 	char*			data;
 	int				size;
 };
@@ -101,7 +100,7 @@ void	ft_display_memory_region(struct memory_region memory)
 	int	nbz;
 	char tmpi;
 	char tmp[3];
-	ft_reccursive_itohex( (int) memory.addr, addr_hex, 0, true);
+	ft_reccursive_itohex( (int) memory.data, addr_hex, 0, true);
 	nbz = 16 - ft_str_len(addr_hex) - 1;
 	while (nbz > 0)
 	{
@@ -120,6 +119,14 @@ void	ft_display_memory_region(struct memory_region memory)
 		if (nbz % 2 == 0)
 			write(1, " ", 1);
 	}
+	nbz = 16 - memory.size;
+	while (nbz > 0)
+	{
+		write(1, "  ", 2);
+		if (nbz % 2  == 1)
+			write(1, " ", 1);
+		nbz -= 1;
+	}
 	write(1, " ", 1);
 	nbz = 0;
 	while (nbz < memory.size)
@@ -132,30 +139,34 @@ void	ft_display_memory_region(struct memory_region memory)
 
 void	ft_print_memory(void *addr, unsigned int size)
 {
-	unsigned int	i;
-	char			*current;
+	unsigned int			i;
+	unsigned int			current_size;
 	struct memory_region	current_mem;
+	bool					is_end;
+	int						next_addr_add;
 
-
-	current = addr;
-	current_mem.addr = addr;
-	current_mem.data = current;
-	current_mem.size = (16 - size <= 0) ? 16 : (16 - size);
-	ft_display_memory_region(current_mem);
 	i = 0;
-	while (16 - i > 0)
+	current_size = size;
+	next_addr_add = 0;
+	while (true)
 	{	
-		i += 16;
-		current = addr + i;
-		current_mem.addr = addr;
-		current_mem.data = current;
-		current_mem.size = (16 - size <= 0) ? 16 : (16 - size);
+		is_end = current_size < 16;
+		current_mem.data = addr + next_addr_add;
+		current_mem.size = (is_end) ? (16 - i) : 16;
 		ft_display_memory_region(current_mem);
+		if (is_end) 
+		{
+			break;
+		}	
+		current_size -= 16;
+		i += 1;
+		is_end = current_size < 16;
+		next_addr_add = is_end ? 16 - current_size : 16;
 	}
 }
 
 int		main(void)
 {
 	char *toto = "Bomjour les aminches ototkfesj opawj fojawdo ajwo djawp ajw djaw";
-	ft_print_memory(toto, 16);
+	ft_print_memory(toto, 18);
 }
