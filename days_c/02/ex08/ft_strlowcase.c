@@ -1,4 +1,17 @@
-const short		ASCII_LOWCASE = 'a' - 'A';
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_strlowcase.c                                  .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/08/05 19:27:04 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/05 19:27:51 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
+const short g_ascii_lowcase = 'a' - 'A';
 
 char	*ft_strlowcase(char *str)
 {
@@ -8,7 +21,7 @@ char	*ft_strlowcase(char *str)
 	while (str[i])
 	{
 		if (str[i] > 'A' && str[i] < 'Z')
-			str[i] += ASCII_LOWCASE;
+			str[i] += g_ascii_lowcase;
 		i += 1;
 	}
 	return (str);

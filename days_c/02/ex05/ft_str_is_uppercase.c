@@ -1,4 +1,15 @@
-typedef enum  {false, true} bool;
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_str_is_uppercase.c                            .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/08/05 19:08:22 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/05 19:09:13 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
 
 int	ft_str_is_uppercase(char *str)
 {
@@ -8,8 +19,8 @@ int	ft_str_is_uppercase(char *str)
 	while (str[i])
 	{
 		if (str[i] < 'A' || str[i] > 'Z')
-			return false;
+			return (0);
 		i += 1;
 	}
-	return true;
+	return (1);
 }

@@ -6,24 +6,13 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/05 17:15:41 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/05 18:11:59 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/05 19:56:14 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-const int	MAX_LEN = 88;
-
-void	ft_putchar(char c);
-void	ft_print_alphabet();
-void	ft_print_reverse_alphabet();
-void	ft_print_numbers();
-void	ft_is_negative(int n);
-void	ft_print_comb();
-void	ft_print_comb2();
-void	ft_putnbr(int nb);
-void	ft_print_combn(int n);
+#include "c00.h"
 
 int		main(void)
 {

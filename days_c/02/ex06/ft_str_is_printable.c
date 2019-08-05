@@ -1,15 +1,26 @@
-typedef enum {false, true} bool;
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_str_is_printable.c                            .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/08/05 19:09:42 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/05 19:28:52 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int		ft_str_is_printable(char *str)
 {
 	unsigned int	i;
-	
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if (str[i] < '!' || str[i] > '~')
-			return false;
+		if (str[i] < ' ' || str[i] > '~')
+			return (0);
 		i += 1;
 	}
-	return true;
+	return (1);
 }

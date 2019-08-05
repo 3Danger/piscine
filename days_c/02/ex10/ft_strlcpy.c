@@ -1,4 +1,17 @@
-unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size) 
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_strlcpy.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/08/05 19:29:27 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/05 19:32:39 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
+unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	out;
@@ -10,7 +23,7 @@ unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size)
 		if (!src[i])
 		{
 			i += 1;
-			break;
+			break ;
 		}
 		i += 1;
 	}
@@ -21,5 +34,5 @@ unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size)
 		dst[i] = '\0';
 		i += 1;
 	}
-	return out;
+	return (out);
 }

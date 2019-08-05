@@ -1,15 +1,26 @@
-typedef enum {false, true} bool;
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_str_is_alpha.c                                .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/08/05 18:33:35 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/05 19:07:12 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
 
 int	ft_str_is_alpha(char *str)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (str[i]) 
+	while (str[i])
 	{
-		if ((str[i] < 'A' ||  str[i] > 'Z') && (str[i] < 'a' || str[i] > 'z'))
-			return false;
+		if ((str[i] < 'A' || str[i] > 'Z') && (str[i] < 'a' || str[i] > 'z'))
+			return (0);
 		i += 1;
 	}
-	return true;
+	return (1);
 }
