@@ -3,9 +3,7 @@ const int ASCII_UPCASE = 'a' - 'A';
 char	*ft_strupcase(char *str)
 {
 	unsigned int	i;
-	int		toadd;	
 
-	toadd = ''
 	i = 0;
 	while (str[i])
 	{

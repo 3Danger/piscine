@@ -1,4 +1,4 @@
-const int	ASCII_LOWCASE = 'a' - 'A'
+const short		ASCII_LOWCASE = 'a' - 'A';
 
 char	*ft_strlowcase(char *str)
 {

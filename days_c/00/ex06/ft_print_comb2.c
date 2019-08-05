@@ -6,14 +6,14 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/01 23:52:49 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/02 01:05:12 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/05 17:32:32 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_numbers(unsigned short n1, unsigned short n2)
+void	ft_print_comb2_numbers(unsigned short n1, unsigned short n2)
 {
 	char out1;
 	char out2;
@@ -52,7 +52,7 @@ void	ft_print_comb2(void)
 		{
 			if (n1 < n2)
 			{
-				ft_print_numbers(n1, n2);
+				ft_print_comb2_numbers(n1, n2);
 			}
 			n2 += 1;
 		}

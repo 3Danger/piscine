@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/03 13:05:57 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/03 15:51:57 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/05 17:21:58 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -52,8 +52,6 @@ void	ft_print_combn_digits(short *digits, int n, bool isfirst)
 
 void	ft_increment_combn_digits(short *digits, int n, int current_digit)
 {
-	int		x;
-	
 	digits[current_digit] += 1;
 	if (digits[current_digit] == 10)
 	{

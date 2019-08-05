@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/02 01:05:41 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/02 01:21:28 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/05 17:43:06 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,7 @@ int	ft_pow_ten(int x)
 	{
 		return (ft_pow_ten(x - 1) * 10);
 	}
+	return x;
 }
 
 int	ft_count_digits(int nb)
@@ -59,10 +60,4 @@ void	ft_putnbr(int nb)
 		write(1, &digit, 1);
 		digits -= 1;
 	}
-}
-
-int	main(void)
-{
-	ft_putnbr(-200);
-	ft_putnbr(98521);
 }

@@ -6,16 +6,16 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/05 11:11:23 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/05 11:50:31 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/05 17:37:47 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
 const char	*HEX = "0123456789abcdef";
 
-int	ft_str_len(char *str)
+int	ft_str_len2(char *str)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	ft_str_len(char *str)
 	return i;
 }
 
-void	ft_str_rev(char *str, int len)
+void	ft_str_rev2(char *str, int len)
 {
 	char			out[len];
 	int	i;
@@ -47,7 +47,7 @@ void	ft_str_rev(char *str, int len)
 	str[i] = '\0';
 }
 
-void	ft_reccursive_itohex(unsigned int nb, char* out, unsigned int i)
+void	ft_reccursive_itohex2(unsigned int nb, char* out, unsigned int i)
 {
 	unsigned int	quotient;
 	unsigned int	rest;
@@ -59,15 +59,15 @@ void	ft_reccursive_itohex(unsigned int nb, char* out, unsigned int i)
 	if (quotient == 0)
 	{
 		out[i + 1] = '\0';
-		ft_str_rev(out, ft_str_len(out));
+		ft_str_rev2(out, ft_str_len2(out));
 	}
 	else
 	{
-		ft_reccursive_itohex(quotient, out, i + 1);
+		ft_reccursive_itohex2(quotient, out, i + 1);
 	}	
 }
 
-void ft_putstr(char *str)
+void ft_putstr2(char *str)
 {
 	unsigned int	i;
 
@@ -90,8 +90,8 @@ void	ft_putstr_non_printable(char *str)
 		if (str[i] < '!' || str[i] > '~')
 		{
 			write(1, "\\", 1);
-			ft_reccursive_itohex(str[i], hex_tmp, 0);
-			ft_putstr(hex_tmp);
+			ft_reccursive_itohex2(str[i], hex_tmp, 0);
+			ft_putstr2(hex_tmp);
 		}
 		else
 		{

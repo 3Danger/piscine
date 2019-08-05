@@ -1,10 +1,10 @@
-size_t		ft_strlcpy(char *dst, char *src, size_t dstsize) 
+unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size) 
 {
-	size_t	i;
-	size_t out;
+	unsigned int	i;
+	unsigned int	out;
 
 	i = 0;
-	while (i < dstsize - 1)
+	while (i < size - 1)
 	{
 		dst[i] = src[i];
 		if (!src[i])
@@ -16,7 +16,7 @@ size_t		ft_strlcpy(char *dst, char *src, size_t dstsize)
 	}
 	dst[i] = '\0';
 	out = i;
-	while (i < dstsize - 1)
+	while (i < size - 1)
 	{
 		dst[i] = '\0';
 		i += 1;
