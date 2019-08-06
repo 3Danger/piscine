@@ -21,13 +21,13 @@ unsigned int	ft_strlenput(char *str, int put)
 	unsigned int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (put > 0)
 				write(1, &str[i], 1);
 		i += 1;
 	}
-	return i;
+	return (i);
 }
 
 void		ft_get_hexa(long n, char *str, unsigned int size)
@@ -44,10 +44,12 @@ void		ft_get_hexa(long n, char *str, unsigned int size)
 			break ;
 		i -= 1;
 	}
+	i += 1;
 	while (n > 0)
 	{
-		str[size - ++i] = g_hext[n & 0xf];
+		str[size - i] = g_hext[n & 0xf];
 		n >>= 4;
+		i += 1;
 	}
 	str[size - 1] = '\0';
 }
@@ -115,7 +117,7 @@ void		*ft_print_memory(void *addr, unsigned int size)
 		if (r_size <= 16)
 			break ;
 		write(1, "\n", 1);
-		current_addr += 16; 
+		current_addr += 16;
 		r_size = r_size > 16 ? r_size - 16 : r_size % 16;
 	}
 	return (addr);
