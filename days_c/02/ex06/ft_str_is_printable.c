@@ -13,7 +13,7 @@
 
 int		ft_str_is_printable(char *str)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	while (str[i])

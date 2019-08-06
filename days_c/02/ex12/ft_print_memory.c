@@ -12,135 +12,111 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 const char	*g_hext = "0123456789abcdef";
 
-void	ft_putstr(char *str);
-
-int		ft_str_len3(char *str)
+unsigned int	ft_strlenput(char *str, int put)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[++i])
+	while(str[i])
 	{
-	}
-	return (i);
-}
-
-void	ft_str_rev3(char *str, int len)
-{
-	char	out[len];
-	int		i;
-
-	i = len - 1;
-	while (i >= 0)
-	{
-		out[len - i - 1] = str[i];
-		i -= 1;
-	}
-	i += 1;
-	while (i < len)
-	{
-		str[i] = out[i];
+		if (put > 0)
+				write(1, &str[i], 1);
 		i += 1;
 	}
-	str[i] = '\0';
+	return i;
 }
 
-void	ft_reccursive_itohex3(unsigned int nb, char *out, unsigned int i,
-		int prefix)
+void		ft_get_hexa(long n, char *str, unsigned int size)
 {
-	unsigned int	quotient;
-	unsigned int	rest;
-	int				z;
+	unsigned int	i;
 
-	quotient = nb / 16;
-	rest = nb % 16;
-	out[i] = g_hext[rest];
-	if (quotient == 0)
+	if (size == 0)
+		return ;
+	i = size - 1;
+	while (1)
 	{
-		z = 1;
-		if (prefix)
-		{
-			out[i + z++] = '0';
-			out[i + z++] = '1';
-		}
-		out[i + z++] = '\0';
-		ft_str_rev3(out, ft_str_len3(out));
+		str[i] = '0';
+		if (i == 0)
+			break ;
+		i -= 1;
 	}
-	else
+	while (n > 0)
 	{
-		ft_reccursive_itohex3(quotient, out, i + 1, prefix);
+		str[size - ++i] = g_hext[n & 0xf];
+		n >>= 4;
 	}
+	str[size - 1] = '\0';
 }
 
-void	ft_display_memory_region(char *data, int size)
+void		ft_putchar_non_printable(void *addr, unsigned int size)
 {
-	char	addr_hex[15];
-	int		nbz;
-	char	tmpi;
-	char	tmp[3];
+	char		*ptr;
+	unsigned int 	i;
 
-	ft_reccursive_itohex3((int)data, addr_hex, 0, 1);
-	nbz = 16 - ft_str_len3(addr_hex) - 1;
-	while (nbz > 0)
-	{
-		write(1, "0", 1);
-		nbz -= 1;
-	}
-	ft_putstr(addr_hex);
-	write(1, ": ", 2);
-	nbz = 0;
-	while (nbz < size)
-	{
-		tmpi = data[nbz];
-		if (tmpi < 16)
-		{
-			write(1, "0", 1);
-		}
-		ft_reccursive_itohex3(tmpi, tmp, 0, 0);
-		ft_putstr(tmp);
-		nbz += 1;
-		if (nbz % 2 == 0)
-			write(1, " ", 1);
-	}
-	nbz = 16 - size;
-	while (nbz > 0)
-	{
-		write(1, "  ", 2);
-		if (nbz % 2 == 1)
-			write(1, " ", 1);
-		nbz -= 1;
-	}
-	write(1, " ", 1);
-	nbz = 0;
-	while (nbz < size)
-	{
-		tmpi = data[nbz] > '~' || data[nbz] < ' ' ?
-			'.' : data[nbz];
-		write(1, &tmpi, 1);
-		nbz += 1;
-	}
-	write(1, "\n", 1);
-}
-
-void	*ft_print_memory(void *addr, unsigned int size)
-{
-	int		i;
-	int		remaining_size;
-	char	*data;
-	int		nsize;
-
-	remaining_size = size;
+	ptr = addr;
 	i = 0;
-	while (remaining_size > 0)
+	while (i < size)
 	{
-		nsize = remaining_size < 16 ? remaining_size : 16;
-		data = addr + i;
-		ft_display_memory_region(data, nsize);
-		remaining_size -= 16;
-		i += 16;
+		if (ptr[i] >= ' ' && ptr[i] <= '~')
+			write(1, &ptr[i], 1);
+		else
+			write(1, ".", 1);
+		i += 1;
+	}
+		write(1, ".", 1);
+}
+
+void		display_memory_region(void *addr, unsigned int size)
+{
+	char		str[6];
+	unsigned int	occ;
+	unsigned int	i;
+	unsigned char	cc;
+
+	occ = size > 16 ? 16 : size;
+	i = 0;
+	while (i < 16)
+	{
+		if (occ > i)
+		{
+			cc = (unsigned char) *((unsigned char*) (addr + i));
+			str[0] = g_hext[cc / 16];
+			str[1] = g_hext[cc % 16];
+			str[2] = '\0';
+			ft_strlenput(str, 2);
+		}
+		else
+			write(1, "  ", 2);
+		i += 1;
+		if (i % 2 == 0)
+			write(1, " ", 1);
+	}
+	ft_putchar_non_printable(addr, occ);
+}
+
+void		*ft_print_memory(void *addr, unsigned int size)
+{
+	unsigned int	r_size;
+	void		*current_addr;
+	char		addrc[16];
+
+	current_addr = addr;
+	r_size = size;
+	while (r_size > 0)
+	{
+		ft_get_hexa((long) current_addr, addrc, 16);
+		ft_strlenput(addrc, 1);
+		write(1, ": ", 2);
+		display_memory_region(current_addr, r_size);
+		if (r_size <= 16)
+			break ;
+		write(1, "\n", 1);
+		current_addr += 16; 
+		r_size = r_size > 16 ? r_size - 16 : r_size % 16;
 	}
 	return (addr);
 }

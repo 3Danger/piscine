@@ -1,46 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putstr_non_printable.c                        .::    .:/ .      .::   */
+/*   ft_ref_int_tab.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/05 11:11:23 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/05 20:08:56 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/03 17:30:13 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/03 17:41:29 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-const char	*g_hexn = "0123456789abcdef";
-
-void	ft_puthexa(int n)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	char	c;
-
-	while (n > 0)
-	{
-		c = g_hexn[n & 0xf];
-		write(1, &c, 1);
-		n >>= 4;
-	}
-}
-
-void	ft_putstr_non_printable(char *str)
-{
-	unsigned int	i;
+	int		new_tab[size];
+	int		i;
 
 	i = 0;
-	while (str[i])
+	while (i < size)
 	{
-		if (str[i] < '!' || str[i] > '~')
-		{
-			write(1, "\\", 1);
-			ft_puthexa(str[i]);
-		}
-		else
-			write(1, &str[i], 1);
+		new_tab[i] = tab[size - 1 - i];
 		i += 1;
+	}
+	while (i >= 0)
+	{
+		tab[i] = new_tab[i];
+		i -= 1;
 	}
 }

@@ -21,11 +21,8 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	while (i < n)
 	{
 		dest[i] = src[i];
-		if (src[i] == '\0')
-		{
-			i += 1;
+		if (!src[i])
 			break ;
-		}
 		i += 1;
 	}
 	while (i < n)

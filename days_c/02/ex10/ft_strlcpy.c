@@ -14,8 +14,9 @@
 unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size)
 {
 	unsigned int	i;
-	unsigned int	out;
 
+	if (size == 0)
+		return (size);
 	i = 0;
 	while (i < size - 1)
 	{
@@ -28,11 +29,5 @@ unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size)
 		i += 1;
 	}
 	dst[i] = '\0';
-	out = i;
-	while (i < size - 1)
-	{
-		dst[i] = '\0';
-		i += 1;
-	}
-	return (out);
+	return (i);
 }

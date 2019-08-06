@@ -16,12 +16,27 @@ const int g_ascii_capitalize = 'A' - 'a';
 char	*ft_strcapitalize(char *str)
 {
 	unsigned int	i;
+	unsigned int	previous_was_not_alphanum;
 
+	previous_was_not_alphanum = 1;
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] += g_ascii_capitalize;
+		{
+			if (previous_was_not_alphanum)
+				str[i] += g_ascii_capitalize;
+			previous_was_not_alphanum = 0;
+		}
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] -= g_ascii_capitalize;
+			previous_was_not_alphanum = 0;
+		}
+		else if (str[i] >= '0' &&  str[i] <= '9')
+			previous_was_not_alphanum = 0;
+		else
+			previous_was_not_alphanum = 1;
 		i += 1;
 	}
 	return (str);
