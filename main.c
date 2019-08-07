@@ -6,11 +6,12 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/05 17:15:41 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/07 11:51:38 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/08 00:08:49 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 #include "c00.h"
 #include "c01.h"
@@ -199,16 +200,37 @@ int		main(void)
 	write(1, "\n", 1);
 	write(1, "ex11: testing ft_print_memory():\n", 33);
 	char addr[] = "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 jwijdawohd awdhawidj opawdjawdaw[dawj";
-	ft_print_memory(addr, 519);
+	ft_print_memory(addr, 250);
 	write(1, "\n", 1);
 
 	write(1, "======= c03 =======\n", 20);
-	char *s1 = "bonjour";
-	char *s2 = "avion";
-	ft_putnbr(ft_strcmp(s1, s2));
-	char *s3 = "helllllo world";
-	char *s4 = "a";
-	ft_putnbr(ft_strcmp(s4, s3));
+	char *s1 = "avion";	
+	char *s2 = "bonjour";
+	printf("ex00: ft_strcmp\nexpected -1: %i\n", ft_strcmp(s1, s2));
+	char *s3 = "a";
+	char *s4 = "hssssss";
+	printf("expected 7: %i\n", ft_strcmp(s4, s3));
 	char *s5 = "bonjour";
-	ft_putnbr(ft_strcmp(s1, s5));
+	printf("expected -1: %i\n", ft_strcmp(s1, s5));
+	char *s11 = "aaaaa5";
+	char *s12 = "aaaaa8";
+	printf("ex01: ft_strncmp expected 0: %i\n", ft_strncmp(s11, s12, 5));
+	printf("expected -1: %i\n", ft_strncmp(s11, s12, 6));
+	printf("expected -3: %i\n", ft_strncmp(s11, s12, 6));
+	char dest[] = "Hello ";
+	char src[] = "World";
+	printf("ex02: ft_strcat expected Hello World: %s\n", ft_strcat(dest, src));
+	char dest2[] = "Hello ";
+	char src2[] = "World";
+	printf("ex03: ft_strncat expected Hello Wor: %s\n", ft_strncat(dest2, src2, 3));
+	char toto1[] = "Lolilo";
+	char needle[] = "il";
+	
+	char *found = ft_strstr(toto1, needle);
+	found[0] = 'O';
+
+	printf("ex04: ft_strstr expected LolOlo: %s\n", toto1);
+	char toto66[] = "pomme de terre";
+	char toto77[] = "patate";
+	printf("ex05: ft_strlcat %i\n", ft_strlcat(toto66, toto77, 3));
 }

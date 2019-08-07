@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   c00.h                                            .::    .:/ .      .::   */
+/*   ft_strcat.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/05 19:50:11 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/08 00:05:07 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/07 22:21:23 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/07 22:39:42 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef C03_H
-#define C03_H
-
-int				ft_strcmp(char *s1, char *s2);
-int				ft_strncmp(char *s1, char *s2, unsigned int n);
-char			*ft_strcat(char *dest, char *src);
-char			*ft_strncat(char *dest, char *src, unsigned int nb);
-char			*ft_strstr(char *str, char *to_find);
-unsigned int 	ft_strlcat(char *dest, char *src, unsigned int size);
-
-#endif
+// dest = s1 src = s2
+char	*ft_strcat(char *dest, char *src)
+{
+	unsigned int	i;
+	unsigned int	y;
+	
+	i = 0;
+	while (dest[++i])
+	{
+	}
+	y = 0;
+	while(src[y])
+	{
+		dest[i + y] = src[y];
+		y += 1;
+	}
+	dest[i + y] =  '\0';
+	return (dest);
+}

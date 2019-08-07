@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   c00.h                                            .::    .:/ .      .::   */
+/*   ft_strncmp.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/05 19:50:11 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/08 00:05:07 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/07 22:00:41 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/07 22:19:09 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef C03_H
-#define C03_H
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int	i;
 
-int				ft_strcmp(char *s1, char *s2);
-int				ft_strncmp(char *s1, char *s2, unsigned int n);
-char			*ft_strcat(char *dest, char *src);
-char			*ft_strncat(char *dest, char *src, unsigned int nb);
-char			*ft_strstr(char *str, char *to_find);
-unsigned int 	ft_strlcat(char *dest, char *src, unsigned int size);
-
-#endif
+	i = 0;
+	while (i < n)
+	{
+		if (s1[i] != s2[i] || !s1[i+1] || !s2[i+1])
+		{
+			return (s1[i] - s2[i]);
+		}
+		i += 1;
+	}
+	return (0);
+}
