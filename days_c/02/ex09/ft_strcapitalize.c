@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/05 19:25:37 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/05 19:26:48 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/07 10:24:56 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,7 +33,7 @@ char	*ft_strcapitalize(char *str)
 			str[i] -= g_ascii_capitalize;
 			previous_was_not_alphanum = 0;
 		}
-		else if (str[i] >= '0' &&  str[i] <= '9')
+		else if (str[i] >= '0' && str[i] <= '9')
 			previous_was_not_alphanum = 0;
 		else
 			previous_was_not_alphanum = 1;
