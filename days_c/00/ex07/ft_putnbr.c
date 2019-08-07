@@ -6,12 +6,14 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/02 01:05:41 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/05 18:32:06 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/07 11:49:09 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+const int g_int_min = -2147483648;
 
 void	ft_putchar9(char c)
 {
@@ -23,11 +25,21 @@ void	ft_putnbr(int nb)
 	if (nb >= 10)
 	{
 		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
 	}
 	else if (nb < 0)
 	{
-		ft_putchar9('-');
-		ft_putnbr(nb * -1);
+		if (nb == -g_int_min)
+		{
+			ft_putnbr(-214748364);
+			ft_putnbr(8);
+		}
+		else
+		{
+			write(1, "-", 1);
+			ft_putnbr(nb * -1);
+		}
 	}
-	ft_putchar9('0' + nb % 10);
+	else
+		ft_putchar9('0' + nb % 10);
 }

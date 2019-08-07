@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/05 17:15:41 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/05 19:56:14 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/07 11:51:38 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,10 +15,11 @@
 #include "c00.h"
 #include "c01.h"
 #include "c02.h"
+#include "c03.h"
 
 int		main(void)
 {
-	write(1, "======= c00 =======\n", 21);
+	write(1, "======= c00 =======\n", 20);
 	write(1, "ex00: testing ft_putchar('c') and got: ", 39);
 	ft_putchar('c');	
 	write(1, "\n", 1);
@@ -59,7 +60,7 @@ int		main(void)
 	ft_print_combn(3);	
 	write(1, "\n", 1);
 	
-	write(1, "======= c01 =======\n", 21);
+	write(1, "======= c01 =======\n", 20);
 	int nb = 0;
 	ft_ft(&nb);
 	write(1, "ex00: testing ft_ft(int*) expected 42 and got: ", 47);
@@ -123,7 +124,7 @@ int		main(void)
 		ft_putnbr(tab[d++]);
 	write(1, "\n", 1);
 
-	write(1, "======= c02 =======\n", 21);
+	write(1, "======= c02 =======\n", 20);
 	char new_str[12];
 	char *new = ft_strcpy(new_str, str);
 	write(1, "ex00: testing ft_strcpy(char *dest, char *src) expected Hello World!: ", 70);
@@ -200,4 +201,14 @@ int		main(void)
 	char addr[] = "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 jwijdawohd awdhawidj opawdjawdaw[dawj";
 	ft_print_memory(addr, 519);
 	write(1, "\n", 1);
+
+	write(1, "======= c03 =======\n", 20);
+	char *s1 = "bonjour";
+	char *s2 = "avion";
+	ft_putnbr(ft_strcmp(s1, s2));
+	char *s3 = "helllllo world";
+	char *s4 = "a";
+	ft_putnbr(ft_strcmp(s4, s3));
+	char *s5 = "bonjour";
+	ft_putnbr(ft_strcmp(s1, s5));
 }
