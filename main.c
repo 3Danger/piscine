@@ -197,7 +197,7 @@ int		main(void)
 	ft_putstr_non_printable(str8);
 	write(1, "\n", 1);
 	write(1, "ex11: testing ft_print_memory():\n", 33);
-	char addr[] = "HELLLLLLLLLLLLLOOOOOOOOO jwijdawohd awdhawidj opawdjawdaw[dawj";
+	char addr[] = "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 jwijdawohd awdhawidj opawdjawdaw[dawj";
 	ft_print_memory(addr, 519);
 	write(1, "\n", 1);
 }

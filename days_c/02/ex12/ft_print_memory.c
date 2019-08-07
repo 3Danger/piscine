@@ -46,7 +46,7 @@ void		ft_get_hexa(long n, char *str, unsigned int size)
 	i += 1;
 	while (n > 0)
 	{
-		str[size - i] = g_hext[n & 0xf];
+		str[size - i - 1] = g_hext[n & 0xf];
 		n >>= 4;
 		i += 1;
 	}
@@ -68,7 +68,6 @@ void		ft_putchar_non_printable(void *addr, unsigned int size)
 			write(1, ".", 1);
 		i += 1;
 	}
-		write(1, ".", 1);
 }
 
 void		display_memory_region(void *addr, unsigned int size)
