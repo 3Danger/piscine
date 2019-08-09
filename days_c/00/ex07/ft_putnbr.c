@@ -20,24 +20,24 @@ void	ft_putchar9(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_putnbr_(int nb)
 {
 	if (nb >= 10)
 	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		ft_putnbr_(nb / 10);
+		ft_putnbr_(nb % 10);
 	}
 	else if (nb < 0)
 	{
 		if (nb == -g_int_min)
 		{
-			ft_putnbr(-214748364);
-			ft_putnbr(8);
+			ft_putnbr_(-214748364);
+			ft_putnbr_(8);
 		}
 		else
 		{
 			write(1, "-", 1);
-			ft_putnbr(nb * -1);
+			ft_putnbr_(nb * -1);
 		}
 	}
 	else

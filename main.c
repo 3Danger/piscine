@@ -13,10 +13,14 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
 #include "c00.h"
 #include "c01.h"
 #include "c02.h"
 #include "c03.h"
+#include "c04.h"
+#include "c05.h"
 
 int		main(void)
 {
@@ -230,7 +234,28 @@ int		main(void)
 	found[0] = 'O';
 
 	printf("ex04: ft_strstr expected LolOlo: %s\n", toto1);
-	char toto66[] = "pomme de terre";
+	char toto88[33] = "pomme de terre";
+	char toto99[] = "patate";
+	printf("ex05: expected strlcat:  %lu %s\n", strlcat(toto88, toto99, 20), toto88);
+	char toto66[33] = "pomme de terre";
 	char toto77[] = "patate";
-	printf("ex05: ft_strlcat %i\n", ft_strlcat(toto66, toto77, 3));
+	printf("ex05: ft_strlcat:  %i %s\n", ft_strlcat(toto66, toto77, 20), toto66);
+
+	printf("======= c03 =======\n");
+	printf("ex00: ft_strlen: %i %s\n", ft_strlen(toto77), toto77);
+	int aq = atoi("4686aaaaa");
+	printf("ex03: atoi expected:  %i\n", aq);
+	int bq = ft_atoi("4686aaaaa");
+	printf("ex03: ft_atoi:  %i\n", bq);
+	printf("ex04: ft_putnbr_base: expected -80000000 \n");
+	ft_putnbr_base(-2147483648, "0123456789ABCDEF");
+	printf("\nex05: ft_atoi_base: expected -2147483648 \n");
+	ft_putnbr(ft_atoi_base("-80000000", "0123456789ABCDEF"));
+	
+	printf("======= c04 =======\n");
+	printf("ex00: ft_iterative_factorial(6) : %i\n", ft_iterative_factorial(6));
+	printf("ex01: ft_reccursive_factorial(6) : %i\n", ft_reccursive_factorial(6));
+	printf("ex02: ft_iterative_power(-3, 3) %i\n", ft_iterative_power(-3,3));
+//	printf("ex03: ft_iterative_power(-3, 3) %i\n", ft_reccursive_power(3,3));
+	ft_reccursive_power(0, 0);
 }
