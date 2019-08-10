@@ -258,4 +258,5 @@ int		main(void)
 	printf("ex02: ft_iterative_power(-3, 3) %i\n", ft_iterative_power(-3,3));
 //	printf("ex03: ft_iterative_power(-3, 3) %i\n", ft_reccursive_power(3,3));
 	ft_reccursive_power(0, 0);
+	printf("ft_ten_queens_puzzle() %i\n", ft_ten_queens_puzzle());
 }

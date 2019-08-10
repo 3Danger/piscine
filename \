@@ -114,66 +114,13 @@ int	ft_find_next_prime(int nb)
 void	ft_display_columns(char * columns)
 {
 	if (!*columns)	
-	{
-		write(1, "\n", 1);
 		return ;
-	}
 	else
 		write(1, columns, 1);
 	ft_display_columns(columns + 1);
 }
 
-int	ft_check_diagonals(char *columns)
-{
-	int	x;
-	int	y;
-	int	x2;
-	int	y2;
-
-	y = 0;
-	while (y < 10)
-	{
-		x = columns[y] - '0';	
-		
-		y2 = 0;
-		while (y2 < 10)
-		{
-			x2 = columns[y2] - '0';
-	
-			if ((x != x2 && y2 != y) && (x + y == x2 + y2 || x - y == x2 - y2))
-			{
-			//	printf("%i %i | %i %i\n",x, y, x2, y2);
-				return (0);
-			}
-			y2 += 1;
-		}
-		y += 1;
-	}
-	return (1);
-}
-
-int	ft_check_all_neq(char *columns)
-{
-	int	i;
-	int	cond;
-
-	if (!*columns)
-		return (1);
-	else
-	{	
-		cond = 1;
-		i = 1;
-		while (*(columns + i ) && cond)
-		{
-			cond = cond && (*(columns + i) != *columns);
-			i += 1;
-		}
-		return (cond && ft_check_all_neq(columns + 1));
-	}
-}
-
-int	ft_check_columns(char * columns)
-{
+int	ft_check_columns(char * columns, int *results)
 	int	sqrt;
 	int	cond;
 
@@ -192,24 +139,34 @@ int	ft_check_columns(char * columns)
 int	ft_increment_columns(char * columns)
 {
 	int	i;
+	int	max;
 
 	i = 9;
-	while (i >= 0)
+	cols = 10;
+	while (i <= 0)
+	{
+		if (*(columns + i) < 9)
+		{
+			*(columns + i) += 1;
+			return (1);
+		}
+		else
+		{
+			*(columns + i) =  0;
+		}
+		i += 1;
+	}
 	return (0);
 }
 
 int	ft_ten_queens_puzzle(void)
 {
-	char 	columns[11] = "0257948136\0";
+	char 	columns[10] = "0257948136";
 	int	results;
 
 	results = 0;
-	while (1)
-	{
-		if (++results && ft_check_diagonals(columns) && ft_check_all_neq(columns))
-			ft_display_columns(columns);
-		if(!ft_increment_columns(columns))	
-			break ;
-	}
+	while (ft_increment(columns)
+		if (ft_check_columns(columns, results) && ++results)
+			ft_dipsplay_columns(columns);
 	return (results);
 }
