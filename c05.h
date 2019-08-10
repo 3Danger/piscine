@@ -113,6 +113,13 @@ int	ft_find_next_prime(int nb)
 
 void	ft_display_columns(char * columns)
 {
+	while (*columns)	
+		write(1, columns++, 1);
+	write(1, "\n", 1);	
+}
+
+void	ft_recc_display_columns(char * columns)
+{
 	if (!*columns)	
 	{
 		write(1, "\n", 1);
@@ -151,8 +158,8 @@ int	ft_check_diagonals(char *columns)
 	}
 	return (1);
 }
-
-int	ft_check_all_neq(char *columns)
+/*
+int	ft_recc_check_all_neq(char *columns)
 {
 	int	i;
 	int	cond;
@@ -171,30 +178,40 @@ int	ft_check_all_neq(char *columns)
 		return (cond && ft_check_all_neq(columns + 1));
 	}
 }
+*/
 
-int	ft_check_columns(char * columns)
+int	ft_check_all_neq(char *columns)
 {
-	int	sqrt;
+	int	y;
+	int	i;
 	int	cond;
 
-	if (*(columns + 1))
-		sqrt = *columns - *(columns + 1);
-	else
-		sqrt = *columns;
-	cond = *(columns + 1) ? ft_check_columns(columns + 1) : 1; 
-	if (sqrt * sqrt >= 2 && cond)
-		return (1);
-	else
-		return (0);
+	y = 0;
+	cond = 1;
+	while(columns[y] && cond)
+	{
+		i = 1;
+		while (columns[y + i])
+		{
+			cond = cond && (columns[y + i] != columns[y]);
+			i += 1;
+		}
+		y += 1;;
+		
+	}
+	return (cond);
 }
-
-
 int	ft_increment_columns(char * columns)
 {
 	int	i;
 
+	//*(columns + 9) = ((*(columns + 9) - '0' + 3) % 10) + '0';
 	i = 9;
 	while (i >= 0)
+		if (*(columns + i) < '9')
+			return (++*(columns + i));
+		else
+			*(columns + i--) = '0';
 	return (0);
 }
 
@@ -206,7 +223,8 @@ int	ft_ten_queens_puzzle(void)
 	results = 0;
 	while (1)
 	{
-		if (++results && ft_check_diagonals(columns) && ft_check_all_neq(columns))
+		if (0 || (ft_check_diagonals(columns) && 
+		ft_check_all_neq(columns) && ++results))
 			ft_display_columns(columns);
 		if(!ft_increment_columns(columns))	
 			break ;
