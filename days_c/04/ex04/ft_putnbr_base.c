@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_putnbr_base.c                                 .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/08/10 23:35:37 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/10 23:37:30 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 void	recc_putnbr_base(int nbr, char *base, unsigned int basen)
@@ -9,8 +22,8 @@ void	recc_putnbr_base(int nbr, char *base, unsigned int basen)
 		write(1, "-", 1);
 		nbr *= -1;
 	}
-	iu = (unsigned int) nbr;
-	if (iu > (basen - 1))	
+	iu = (unsigned int)nbr;
+	if (iu > (basen - 1))
 	{
 		recc_putnbr_base(iu / basen, base, basen);
 		recc_putnbr_base(iu % basen, base, basen);
@@ -21,7 +34,7 @@ void	recc_putnbr_base(int nbr, char *base, unsigned int basen)
 	}
 }
 
-int	check_for_dble(char *str)
+int		check_for_dble(char *str)
 {
 	unsigned int	tmp[127];
 	unsigned int	i;
@@ -30,10 +43,10 @@ int	check_for_dble(char *str)
 	while (i < 127)
 		tmp[i++] = 0;
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		tmp[(unsigned short) str[i]] += 1;
-		if (tmp[(unsigned short) str[i]] > 1)
+		tmp[(unsigned short)str[i]] += 1;
+		if (tmp[(unsigned short)str[i]] > 1)
 			return (1);
 		i += 1;
 	}
@@ -47,8 +60,8 @@ void	ft_putnbr_base(int nbr, char *base)
 	base_i = 0;
 	while (base[base_i])
 	{
-		if ((base[base_i] > 'z' ||  base[base_i] < 'a') 
-		&& (base[base_i] > 'Z' || base[base_i] < 'A') 
+		if ((base[base_i] > 'z' || base[base_i] < 'a')
+		&& (base[base_i] > 'Z' || base[base_i] < 'A')
 		&& (base[base_i] < '0' && base[base_i] > '9'))
 			return ;
 		base_i += 1;

@@ -6,22 +6,27 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 21:28:25 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/10 21:29:02 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/10 23:27:18 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-void show_digits(char *digits, int *possibilities)
-{
-	int	i = 0;
+#include <unistd.h>
 
+const int	g_puzzle_size = 10;
+
+void	show_digits(char *digits, int *possibilities)
+{
+	int		i;
+
+	i = 0;
 	*possibilities += 1;
 	while (digits[i])
 		write(1, &digits[i++], 1);
 	write(1, "\n", 1);
 }
 
-int	check_digits(char *digits, int x, int y)
+int		check_digits(char *digits, int x, int y)
 {
 	int	y2;
 	int	x2;
@@ -29,7 +34,7 @@ int	check_digits(char *digits, int x, int y)
 	y2 = 0;
 	x2 = digits[y2] - '0';
 	while (y2 < y)
-		if (x2 == x || x2 - y2 == x - y || x2 + y2 ==  x + y)
+		if (x2 == x || x2 - y2 == x - y || x2 + y2 == x + y)
 			return (0);
 		else
 			x2 = digits[++y2] - '0';
@@ -37,7 +42,7 @@ int	check_digits(char *digits, int x, int y)
 	return (1);
 }
 
-int	increment_digits(char *digits, int y)
+int		increment_digits(char *digits, int y)
 {
 	int	possibilities;
 	int	x;
@@ -53,8 +58,21 @@ int	increment_digits(char *digits, int y)
 	return (possibilities);
 }
 
-int	ft_ten_queens_puzzle(void)
+int		ft_ten_queens_puzzle(void)
 {
-	char	digits[g_puzzle_size + 1] = "0257948136";
+	char	digits[g_puzzle_size + 1];
+	int		i;
+
+	i = 0;
+	digits[i++] = '0';
+	digits[i++] = '2';
+	digits[i++] = '5';
+	digits[i++] = '7';
+	digits[i++] = '9';
+	digits[i++] = '4';
+	digits[i++] = '8';
+	digits[i++] = '1';
+	digits[i++] = '3';
+	digits[i++] = '6';
 	return (increment_digits(digits, 0));
 }

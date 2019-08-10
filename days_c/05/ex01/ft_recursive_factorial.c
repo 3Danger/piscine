@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 21:22:39 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/10 21:42:26 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/10 23:18:02 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,5 +18,5 @@ int	ft_recursive_factorial(int nb)
 	else if (nb < 0)
 		return (0);
 	else
-		return (nb * ft_reccursive_factorial(nb - 1));
+		return (nb * ft_recursive_factorial(nb - 1));
 }

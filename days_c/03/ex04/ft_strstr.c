@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/07 23:00:50 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/07 23:29:06 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/10 23:40:02 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ char		*ft_strstr(char *str, char *to_find)
 		y = 0;
 		while (str[x + y] == to_find[y])
 		{
-			if (y == z - 1)	
+			if (y == z - 1)
 				return (str + x + y - 1);
 			y += 1;
 		}

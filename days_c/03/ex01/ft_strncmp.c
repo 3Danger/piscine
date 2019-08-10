@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/07 22:00:41 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/07 22:19:09 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/10 23:42:11 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n)
 	i = 0;
 	while (i < n)
 	{
-		if (s1[i] != s2[i] || !s1[i+1] || !s2[i+1])
+		if (s1[i] != s2[i] || !s1[i + 1] || !s2[i + 1])
 		{
 			return (s1[i] - s2[i]);
 		}

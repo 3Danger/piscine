@@ -6,12 +6,12 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 21:25:23 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/10 21:25:40 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/10 23:22:47 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int	ft_reccursive_power(int nb, int power)
+int	ft_recursive_power(int nb, int power)
 {
 	if (power == 0)
 		return (1);
@@ -19,5 +19,5 @@ int	ft_reccursive_power(int nb, int power)
 		return (nb);
 	if (power < 0)
 		return (0);
-	return (nb * ft_reccursive_power(nb, power - 1));
+	return (nb * ft_recursive_power(nb, power - 1));
 }

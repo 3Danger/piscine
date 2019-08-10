@@ -1,4 +1,17 @@
-int	ft_atoi(char *str)
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_atoi.c                                        .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/08/10 23:37:46 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/10 23:38:08 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
+int		ft_atoi(char *str)
 {
 	unsigned int	minus_n;
 	unsigned int	output;
@@ -9,7 +22,7 @@ int	ft_atoi(char *str)
 	minus_n = 0;
 	while (str[i])
 	{
-		if (str[i] != ' ' && str[i] != '+' && str[i] != '-' 
+		if (str[i] != ' ' && str[i] != '+' && str[i] != '-'
 		&& (str[i] > '9' || str[i] < '0'))
 			break ;
 		if (str[i] == '-')
