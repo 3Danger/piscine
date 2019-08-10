@@ -110,124 +110,52 @@ int	ft_find_next_prime(int nb)
 	return (0);
 }
 
+const int	g_puzzle_size = 10;
 
-void	ft_display_columns(char * columns)
+void	show_digits(char *digits, int *possibilities)
 {
-	while (*columns)	
-		write(1, columns++, 1);
-	write(1, "\n", 1);	
+	int	i = 0;
+
+	*possibilities += 1;
+	while (digits[i])
+		write(1, &digits[i++], 1);
+	write(1, "\n", 1);
 }
 
-void	ft_recc_display_columns(char * columns)
+int	check_digits(char *digits, int x, int y)
 {
-	if (!*columns)	
-	{
-		write(1, "\n", 1);
-		return ;
-	}
-	else
-		write(1, columns, 1);
-	ft_display_columns(columns + 1);
-}
-
-int	ft_check_diagonals(char *columns)
-{
-	int	x;
-	int	y;
-	int	x2;
 	int	y2;
+	int	x2;
 
-	y = 0;
-	while (y < 10)
-	{
-		x = columns[y] - '0';	
-		
-		y2 = 0;
-		while (y2 < 10)
-		{
-			x2 = columns[y2] - '0';
-	
-			if ((x != x2 && y2 != y) && (x + y == x2 + y2 || x - y == x2 - y2))
-			{
-			//	printf("%i %i | %i %i\n",x, y, x2, y2);
-				return (0);
-			}
-			y2 += 1;
-		}
-		y += 1;
-	}
+	y2 = 0;
+	x2 = digits[y2] - '0';
+	while (y2 < y)
+		if (x2 == x || x2 - y2 == x - y || x2 + y2 ==  x + y)
+			return (0);
+		else
+			x2 = digits[++y2] - '0';
+	digits[y] = x + '0';
 	return (1);
 }
-/*
-int	ft_recc_check_all_neq(char *columns)
-{
-	int	i;
-	int	cond;
 
-	if (!*columns)
-		return (1);
+int	increment_digits(char *digits, int y)
+{
+	int	possibilities;
+	int	x;
+
+	possibilities = 0;
+	x = -1;
+	if (y == g_puzzle_size)
+		show_digits(digits, &possibilities);
 	else
-	{	
-		cond = 1;
-		i = 1;
-		while (*(columns + i ) && cond)
-		{
-			cond = cond && (*(columns + i) != *columns);
-			i += 1;
-		}
-		return (cond && ft_check_all_neq(columns + 1));
-	}
-}
-*/
-
-int	ft_check_all_neq(char *columns)
-{
-	int	y;
-	int	i;
-	int	cond;
-
-	y = 0;
-	cond = 1;
-	while(columns[y] && cond)
-	{
-		i = 1;
-		while (columns[y + i])
-		{
-			cond = cond && (columns[y + i] != columns[y]);
-			i += 1;
-		}
-		y += 1;;
-		
-	}
-	return (cond);
-}
-int	ft_increment_columns(char * columns)
-{
-	int	i;
-
-	//*(columns + 9) = ((*(columns + 9) - '0' + 3) % 10) + '0';
-	i = 9;
-	while (i >= 0)
-		if (*(columns + i) < '9')
-			return (++*(columns + i));
-		else
-			*(columns + i--) = '0';
-	return (0);
+		while (++x < g_puzzle_size)
+			if (check_digits(digits, x, y))
+				possibilities += increment_digits(digits, y + 1);
+	return (possibilities);
 }
 
 int	ft_ten_queens_puzzle(void)
 {
-	char 	columns[11] = "0257948136\0";
-	int	results;
-
-	results = 0;
-	while (1)
-	{
-		if (0 || (ft_check_diagonals(columns) && 
-		ft_check_all_neq(columns) && ++results))
-			ft_display_columns(columns);
-		if(!ft_increment_columns(columns))	
-			break ;
-	}
-	return (results);
+	char	digits[g_puzzle_size + 1] = "0257948136";
+	return (increment_digits(digits, 0));
 }
