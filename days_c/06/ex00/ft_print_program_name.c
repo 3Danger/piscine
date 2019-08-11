@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strlowcase.c                                  .::    .:/ .      .::   */
+/*   ft_print_program_name.c                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/05 19:27:04 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/11 07:59:11 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/11 02:46:10 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/11 02:50:07 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-const short g_ascii_lowcase = 'a' - 'A';
+#include <unistd.h>
 
-char	*ft_strlowcase(char *str)
+int		main(int argc, char**argv)
 {
-	unsigned int	i;
+	int		i;
 
 	i = 0;
-	while (str[i])
+	while (argv[0][i])
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += g_ascii_lowcase;
+		write(1, &argv[0][i], 1);
 		i += 1;
 	}
-	return (str);
+	write(1, "\n", 1);
 }

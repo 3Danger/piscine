@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strlowcase.c                                  .::    .:/ .      .::   */
+/*   ft_sort_params.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/05 19:27:04 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/11 07:59:11 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/11 03:02:32 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/11 06:01:02 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-const short g_ascii_lowcase = 'a' - 'A';
-
-char	*ft_strlowcase(char *str)
+int		ft_strcmp(char *s1, char *s2)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (str[i])
+	while (s1[i] == s2[i])
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += g_ascii_lowcase;
+		if (!s1[i])
+			return (0);
 		i += 1;
 	}
-	return (str);
+	return (s1[i] - s2[i]);
+}
+
+int		main(int argc, char **argv)
+{
+	int		i;
+
 }

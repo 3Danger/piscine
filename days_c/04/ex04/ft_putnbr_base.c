@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 23:35:37 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/10 23:37:30 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/11 00:56:47 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -70,3 +70,4 @@ void	ft_putnbr_base(int nbr, char *base)
 		return ;
 	recc_putnbr_base(nbr, base, base_i);
 }
+

@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 23:28:52 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/10 23:33:36 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/11 00:56:01 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -74,3 +74,4 @@ int		ft_atoi_base(char *str, char *base)
 			output = output * base_i + indexof(str[i], base);
 	return (minus_n % 2 == 0 ? output : output * -1);
 }
+

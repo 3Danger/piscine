@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/05 17:15:41 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/10 23:20:57 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/11 02:45:39 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -257,6 +257,8 @@ int		main(void)
 	printf("ex01: ft_recursive_factorial(6) : %i\n", ft_recursive_factorial(6));
 	printf("ex02: ft_iterative_power(-3, 3) %i\n", ft_iterative_power(-3,3));
 	printf("ex03: ft_recursive_power(-3, 3) %i\n", ft_recursive_power(3,3));
+	printf("ex04: ft_atoi_base : \n");
+	ft_putnbr_base(-2147483647, "0123456789ABCDEF");
 	ft_recursive_power(0, 0);
 	printf("ft_ten_queens_puzzle() %i\n", ft_ten_queens_puzzle());
 }
