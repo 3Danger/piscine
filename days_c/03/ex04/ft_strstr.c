@@ -13,26 +13,16 @@
 
 char		*ft_strstr(char *str, char *to_find)
 {
-	unsigned int	x;
-	unsigned int	y;
-	unsigned int	z;
+	int		x;
+	int		y;
 
-	z = 0;
-	while (to_find[z])
+	x = -1;
+	while (str[++x])
 	{
-		z += 1;
+		y = -1;
+		while (str[x + ++y] == to_find[y])
+			if (ton_find[y + 1] == '\0')
+				return (str + x);
 	}
-	x = 0;
-	while (str[x])
-	{
-		y = 0;
-		while (str[x + y] == to_find[y])
-		{
-			if (y == z - 1)
-				return (str + x + y - 1);
-			y += 1;
-		}
-		x += 1;
-	}
-	return (str);
+	return (0);
 }

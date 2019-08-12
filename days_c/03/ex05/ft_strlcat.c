@@ -11,28 +11,29 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
+int		ft_superlen(char *str)
+{
+	int		i;
+
+	i = -1;
+	while (str[++i])
+		;
+	return (i);
+}
+
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	stop_at;
-	unsigned int	i;
+	int		i;
 	unsigned int	dest_len;
 	unsigned int	src_len;
 
-	dest_len = 0;
-	src_len = 0;
-	stop_at = size - 1;
-	while (dest[dest_len])
-		dest_len += 1;
-	while (src[src_len])
-		src_len += 1;
-	if (dest_len >= stop_at)
+	dest_len = ft_superlen(dest);
+	src_len = ft_superlen(src);
+	if (dest_len <= size)
 		return (src_len + size);
-	i = 0;
-	while (dest_len + i < stop_at)
-	{
+	i = -1;
+	while (dest_len + ++i < size - 1 && src[i] != '\0')
 		dest[dest_len + i] = src[i];
-		i += 1;
-	}
 	if (dest_len >= stop_at)
 		return (src_len + size);
 	dest[dest_len + i] = '\0';

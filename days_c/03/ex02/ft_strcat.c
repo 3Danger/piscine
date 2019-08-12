@@ -11,22 +11,25 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+int	ft_strsuperlen(char *str)
 {
-	unsigned int	i;
-	unsigned int	y;
+	int	i;
 
 	i = 0;
-	while (dest[i])
-	{
+	while(str[i])
 		i += 1;
-	}
-	y = 0;
-	while (src[y])
-	{
-		dest[i + y] = src[y];
-		y += 1;
-	}
-	dest[i + y] = '\0';
+	return (i);
+}
+
+char	*ft_strcat(char *dest, char *src)
+{
+	int		dest_len;
+	int		i;
+
+	dest_Len = ft_strsuperlen(dest);
+	i = -1;
+	while (src[++i])
+		dest[dest_len + i] = src[i];
+	dest[dest_len + i] = '\0';
 	return (dest);
 }
