@@ -28,7 +28,7 @@ void	ft_putstr_non_printable(char *str)
 
 	i = -1;
 	while (str[++i])
-		if (str[i] < ' ' || str[i] > '~')
+		if (str[i] < ' ')
 			ft_putchartohex(str[i]);
 		else
 			write(1, &str[i], 1);
