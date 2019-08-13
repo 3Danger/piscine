@@ -86,7 +86,6 @@ int		main(int argc, char**argv)
 		i += 1;
 	}
 	MU_REPORT();
-	printf("OUTPUT == %i", minunit_fail);
 	return (minunit_fail);
 }
 
