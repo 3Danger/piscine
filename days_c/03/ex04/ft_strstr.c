@@ -20,8 +20,8 @@ char		*ft_strstr(char *str, char *to_find)
 	while (str[++x])
 	{
 		y = -1;
-		while (str[x + ++y] == to_find[y])
-			if (ton_find[y + 1] == '\0')
+		while (str[x + y] == to_find[y])
+			if (to_find[y++ + 1] == '\0')
 				return (str + x);
 	}
 	return (0);

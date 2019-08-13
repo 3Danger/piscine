@@ -26,7 +26,7 @@ char	*ft_strcat(char *dest, char *src)
 	int		dest_len;
 	int		i;
 
-	dest_Len = ft_strsuperlen(dest);
+	dest_len = ft_strsuperlen(dest);
 	i = -1;
 	while (src[++i])
 		dest[dest_len + i] = src[i];
