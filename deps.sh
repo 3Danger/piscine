@@ -10,10 +10,10 @@ goToLibs;#======================================================================
 install minunit     master          https://github.com/siu/minunit.git;
 
 # Homebrew (deps mgr)                                                                                				 #
-install homebrew    master          https://github.com/mxcl/homebrew.git;
+install homebrew    master          https://github.com/Homebrew/brew.git;
 
 CCPATH=$(pwd);
-echo "export PATH=${CCPATH}/libs/homebrew/bin:\$PATH" >> ~/.bash_profile;
+echo "export PATH=${CCPATH}/homebrew/bin:\$PATH" >> ~/.bash_profile;
 
 source ~/.bash_profile;
 
