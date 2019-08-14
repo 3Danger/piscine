@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/07 23:00:50 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/14 19:23:00 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/14 23:28:23 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,7 +32,7 @@ char		*ft_strstr(char *str, char *to_find)
 	int		needle_len;
 	int		haystack_len;
 
-	needle_len = ft_strlens(to_find); 
+	needle_len = ft_strlens(to_find);
 	haystack_len = ft_strlens(str);
 	x = 0;
 	if (haystack_len == 0)

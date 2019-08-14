@@ -6,17 +6,17 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/07 22:21:23 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/14 14:31:32 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/14 23:28:05 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int	ft_strsuperlen(char *str)
+int		ft_strsuperlen(char *str)
 {
-	int	i;
+	int		i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i += 1;
 	return (i);
 }
