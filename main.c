@@ -24,7 +24,7 @@ int		main(int argc, char**argv)
 	int		days[99];
 	int		innb;
 	int		nb_days = 1;
-	int		available_days[] = {0};
+	int		available_days[] = {0, 3};
 
 	should_stop = 0;
 	if (argc == 1)
@@ -77,6 +77,11 @@ int		main(int argc, char**argv)
 			case (0) :
 				printf("You requested day 00.\n");
 				testc00();
+				break ;
+		
+			case (3) :
+				printf("You requested day 03.\n");
+				testc03();
 				break ;
 			default :
 				printf("Requested day %i is still not tested.\n", days[i]);
