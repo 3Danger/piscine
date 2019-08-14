@@ -51,5 +51,6 @@ char	*ob(void	(*callback)())
 		fclose (f);
 		unlink(temporary);
 	}
+	buffer[length] = '\0';
 	return (buffer);
 }

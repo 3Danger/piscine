@@ -6,13 +6,12 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/01 18:06:16 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/14 09:47:29 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/14 10:58:07 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {

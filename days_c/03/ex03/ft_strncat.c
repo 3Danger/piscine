@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/11 09:48:01 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/11 09:59:54 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/14 14:55:01 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,6 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	unsigned int	dest_len;
 	unsigned int	src_i;
-
 
 	dest_len = 0;
 	while (dest[dest_len])
