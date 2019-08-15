@@ -6,14 +6,14 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/07 22:00:41 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/14 11:21:58 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/15 12:24:40 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	unsigned int	i;
+	int			i;
 
 	i = -1;
 	while ((unsigned int)++i < n)

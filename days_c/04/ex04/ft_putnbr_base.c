@@ -6,14 +6,16 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 23:35:37 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/11 00:56:47 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/15 12:28:54 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-void	recc_putnbr_base(int nbr, char *base, unsigned int basen)
+
+void	recc_putnbr_base(int nbr, char *base, unsigned int baselen)
 {
 	unsigned int	iu;
 
@@ -23,10 +25,10 @@ void	recc_putnbr_base(int nbr, char *base, unsigned int basen)
 		nbr *= -1;
 	}
 	iu = (unsigned int)nbr;
-	if (iu > (basen - 1))
+	if (iu > (baselen - 1))
 	{
-		recc_putnbr_base(iu / basen, base, basen);
-		recc_putnbr_base(iu % basen, base, basen);
+		recc_putnbr_base(iu / baselen, base, baselen);
+		recc_putnbr_base(iu % baselen, base, baselen);
 	}
 	else
 	{
@@ -58,11 +60,11 @@ void	ft_putnbr_base(int nbr, char *base)
 	unsigned int	base_i;
 
 	base_i = 0;
+	if (!base[0] || !base[1])
+		return ;
 	while (base[base_i])
 	{
-		if ((base[base_i] > 'z' || base[base_i] < 'a')
-		&& (base[base_i] > 'Z' || base[base_i] < 'A')
-		&& (base[base_i] < '0' && base[base_i] > '9'))
+		if (base[base_i] == '+' || base[base_i] == '-')
 			return ;
 		base_i += 1;
 	}
