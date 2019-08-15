@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 23:28:52 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/15 14:23:06 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/15 20:07:44 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,6 +60,19 @@ int		is_in_base(char c, char *base)
 	return (0);
 }
 
+int		is_base_ok(char *base, int *base_i)
+{
+	*base_i = 0;
+	while (base[++*base_i])
+		if (((base[*base_i] >= '\t' && base[*base_i] <= '\r') || base[*base_i]
+			== ' ') || (base[*base_i] == '+' || base[*base_i] == '-'))
+			return (0);
+	if (*base_i <= 1 || check_for_dble2(base))
+		return (0);
+	else
+		return (1);
+}
+
 int		ft_atoi_base(char *str, char *base)
 {
 	int				base_i;
@@ -67,20 +80,24 @@ int		ft_atoi_base(char *str, char *base)
 	unsigned int	output;
 	unsigned int	i;
 
-	base_i = -1;
-	while (base[++base_i])
-		if (((base[base_i] >= '\t' && base[base_i] <= '\r') || base[base_i]
-			== ' ') || (base[base_i] == '+' || base[base_i] == '-'))
-			return (0);
-	if (base_i <= 1 || check_for_dble2(base))
+	base_i = 0;
+	if (!is_base_ok(base, &base_i))
 		return (0);
 	i = -1;
 	output = 0;
-	minus_n = 0;
-	while (str[++i])
-		if (str[i] == '-')
-			minus_n += 1;
-		else if (is_in_base(str[i], base))
-			output = output * base_i + indexof(str[i], base);
-	return (minus_n % 2 == 0 ? output : output * -1);
+	minus_n = 1;
+	while (str[++i] == ' ' || str[i] == '\r' || str[i] == '\v' || str[i] == '\n'
+		|| str[i] == '\f' || str[i] == '\t')
+		;
+	while (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			minus_n *= -1;
+	while (is_in_base(str[i], base))
+	{
+		output += indexof(str[i], base);
+		if (is_in_base(str[i + 1], base))
+			output *= base_i;
+		i += 1;
+	}
+	return (output);
 }

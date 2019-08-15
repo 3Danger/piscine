@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 23:37:46 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/15 11:40:02 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/15 19:45:00 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,24 +15,25 @@ int		ft_atoi(char *str)
 {
 	unsigned int	minus_n;
 	unsigned int	output;
-	unsigned int	i;
+	int				i;
 
-	i = 0;
+	i = -1;
 	output = 0;
-	minus_n = 0;
-	while (str[i])
+	minus_n = 1;
+	while (str[++i] == ' ' || str[i] == '\n' || str[i] == '\r' || str[i] == '\v'
+			|| str[i] == '\t' || str[i] == '\f')
+		;
+	while (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			minus_n *= -1;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (str[i] != ' ' && str[i] != '+' && str[i] != '-'
-		&& (str[i] > '9' || str[i] < '0'))
-			break ;
-		if (str[i] == '-')
-			minus_n += 1;
-		if (str[i] <= '9' && str[i] >= '0')
-			output = output * 10 + str[i] - '0';
+		output += str[i] - '0';
+		if (str[i + 1] >= '0' && str[i + 1] <= '9')
+		{
+			output *= 10;
+		}
 		i += 1;
 	}
-	if (minus_n % 2 == 0)
-		return (output);
-	else
-		return (output * -1);
+	return (output * minus_n);
 }
