@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 23:35:37 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/15 14:05:55 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/15 14:20:32 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -62,8 +62,8 @@ void		ft_putnbr_base(int nbr, char *base)
 		return ;
 	while (base[base_i])
 	{
-		 if(((base[base_i] >= '\t' && base[base_i] <= '\r') || base[base_i] == ' ') ||
-			         (base[base_i] == '+' || base[base_i] == '-'))
+		if (((base[base_i] >= '\t' && base[base_i] <= '\r') || base[base_i]
+			== ' ') || (base[base_i] == '+' || base[base_i] == '-'))
 			return ;
 		base_i += 1;
 	}
