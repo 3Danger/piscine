@@ -6,16 +6,14 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 23:35:37 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/15 12:28:54 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/15 14:05:55 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
-
-void	recc_putnbr_base(int nbr, char *base, unsigned int baselen)
+void		recc_putnbr_base(int nbr, char *base, unsigned int baselen)
 {
 	unsigned int	iu;
 
@@ -36,7 +34,7 @@ void	recc_putnbr_base(int nbr, char *base, unsigned int baselen)
 	}
 }
 
-int		check_for_dble(char *str)
+int			check_for_dble(char *str)
 {
 	unsigned int	tmp[127];
 	unsigned int	i;
@@ -55,7 +53,7 @@ int		check_for_dble(char *str)
 	return (0);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void		ft_putnbr_base(int nbr, char *base)
 {
 	unsigned int	base_i;
 
@@ -64,7 +62,8 @@ void	ft_putnbr_base(int nbr, char *base)
 		return ;
 	while (base[base_i])
 	{
-		if (base[base_i] == '+' || base[base_i] == '-')
+		 if(((base[base_i] >= '\t' && base[base_i] <= '\r') || base[base_i] == ' ') ||
+			         (base[base_i] == '+' || base[base_i] == '-'))
 			return ;
 		base_i += 1;
 	}
@@ -72,4 +71,3 @@ void	ft_putnbr_base(int nbr, char *base)
 		return ;
 	recc_putnbr_base(nbr, base, base_i);
 }
-
