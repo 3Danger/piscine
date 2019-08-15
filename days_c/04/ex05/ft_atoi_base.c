@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 23:28:52 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/15 14:21:09 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/15 14:23:06 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -62,7 +62,7 @@ int		is_in_base(char c, char *base)
 
 int		ft_atoi_base(char *str, char *base)
 {
-	unsigned int	base_i;
+	int				base_i;
 	unsigned int	minus_n;
 	unsigned int	output;
 	unsigned int	i;
