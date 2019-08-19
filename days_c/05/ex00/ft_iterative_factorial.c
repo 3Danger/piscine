@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 21:21:28 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/15 14:47:43 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/19 20:54:30 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,4 +26,9 @@ int	ft_iterative_factorial(int nb)
 		i += 1;
 	}
 	return (x);
+}
+
+int		main()
+{
+	printf("%i", ft_iterative_factorial(8));
 }
