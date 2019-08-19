@@ -6,12 +6,12 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 21:26:42 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/19 21:50:21 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/19 22:19:36 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int	ft_is_prime2(int nb)
+int		ft_is_prime(int nb)
 {
 	int		i;
 
