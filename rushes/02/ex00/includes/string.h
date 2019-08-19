@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_sqrt.c                                        .::    .:/ .      .::   */
+/*   string.h                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/10 21:26:42 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/16 16:02:38 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/17 16:25:55 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/18 15:29:06 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	i;
+#ifndef STRING_H
+# define STRING_H
 
-	i = 0;
-	if (nb < 0)
-		return (0);
-	while (i * i <= nb)
-		if (i * i == nb)
-			return (i);
-		else
-			i += 1;
-	return (0);
-}
+char			*ft_strdup(char *str);
+unsigned long	ft_atoi(char *nbr);
+char			*ft_trim_begin(char *str);
+int				ft_is_number(char c);
+int				ft_is_space(char c);
+
+#endif

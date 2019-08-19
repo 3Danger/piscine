@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_sqrt.c                                        .::    .:/ .      .::   */
+/*   stdio.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/10 21:26:42 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/16 16:02:38 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/17 17:52:37 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/17 18:25:52 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	i;
+#ifndef STDIO_H
+# define STDIO_H
 
-	i = 0;
-	if (nb < 0)
-		return (0);
-	while (i * i <= nb)
-		if (i * i == nb)
-			return (i);
-		else
-			i += 1;
-	return (0);
-}
+char	*ft_read_input(char delimiter, int fd);
+void	ft_putstr(char *str);
+
+#endif

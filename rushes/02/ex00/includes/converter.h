@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_sqrt.c                                        .::    .:/ .      .::   */
+/*   converter.h                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/10 21:26:42 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/16 16:02:38 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/18 22:17:16 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/18 23:35:31 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	i;
+#ifndef CONVERTER_H
+# define CONVERTER_H
+# include "./string.h"
+# include "./stdio.h"
+# include "./dictionary.h"
 
-	i = 0;
-	if (nb < 0)
-		return (0);
-	while (i * i <= nb)
-		if (i * i == nb)
-			return (i);
-		else
-			i += 1;
-	return (0);
-}
+void			ft_display_single(unsigned long long n, t_dictionary *dict);
+
+void			ft_display_specials(unsigned long long n,
+		unsigned int number,
+		t_dictionary *dict);
+
+void			ft_proceed_banana(
+		t_word *last_word,
+		t_dictionary *dict,
+		unsigned long long number,
+		unsigned int deep);
+#endif
