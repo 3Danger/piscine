@@ -6,7 +6,7 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/10 21:27:15 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/19 22:22:00 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/19 23:54:13 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,8 +18,13 @@ int		ft_is_prime(int nb)
 	i = nb;
 	if (nb <= 1)
 		return (0);
-	while (--i > 1)
+	if (nb == 2)
+		return (1);
+	i = i % 2 == 0 ? i - 1 : i - 2;
+	while (i > 1)
 		if (nb % i == 0)
 			return (0);
+		else
+			i -= 2;
 	return (1);
 }
