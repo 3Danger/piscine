@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_rev_params.c                                  .::    .:/ .      .::   */
+/*   ft_strdup.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/11 02:54:42 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/22 21:57:08 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/22 16:56:22 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/22 16:59:58 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int		main(int argc, char **argv)
+int		ft_strlen(char *src)
 {
-	int		a;
-	int		i;
+	unsigned int 	i;
 
-	a = argc - 1;
-	while (a > 0)
+	i = 0;
+	while (src[i])
 	{
-		i = 0;
-		while (argv[a][i])
-		{
-			write(1, &argv[a][i], 1);
-			i += 1;
-		}
-		write(1, "\n", 1);
-		a -= 1;
+		i += 1;
 	}
+	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	char			*out;
+	unsigned int	i;
+	unsigned int	src_len;
+
+	i = 0;
+	src_len = ft_strlen(src);
+	out = malloc(src_len * sizeof(char));
+	while (src[i])
+	{
+		out[i] = src[i];
+		i += 1;
+	}
+	out[i] = '\0';
+	return (out);
 }

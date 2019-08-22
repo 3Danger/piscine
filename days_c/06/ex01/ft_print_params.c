@@ -6,14 +6,14 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/11 02:50:27 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/11 02:54:12 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/22 21:56:37 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		main(int argc,	char **argv)
+int		main(int argc, char **argv)
 {
 	int		i;
 	int		x;

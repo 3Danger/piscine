@@ -6,18 +6,17 @@
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/11 02:46:10 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/11 02:50:07 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/22 21:56:18 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		main(int argc, char**argv)
+int		main(int argc, char **argv)
 {
 	int		i;
 
-	
 	if (argc > 0)
 	{
 		i = 0;

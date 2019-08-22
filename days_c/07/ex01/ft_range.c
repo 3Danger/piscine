@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_rev_params.c                                  .::    .:/ .      .::   */
+/*   ft_range.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/11 02:54:42 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/22 21:57:08 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/22 17:00:26 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/22 17:47:15 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int		main(int argc, char **argv)
+int		*ft_range(int min, int max)
 {
-	int		a;
+	int		nb;
+	int		*range;
 	int		i;
 
-	a = argc - 1;
-	while (a > 0)
+	if (min >= max)
+		return (0);
+	nb = max - min;
+	range = malloc(nb * sizeof(int));
+	i = min;
+	while (i < max)
 	{
-		i = 0;
-		while (argv[a][i])
-		{
-			write(1, &argv[a][i], 1);
-			i += 1;
-		}
-		write(1, "\n", 1);
-		a -= 1;
+		range[min - i] = i;
+		i += 1;
 	}
+	return (range);
 }
