@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strdup.c                                      .::    .:/ .      .::   */
+/*   string.h                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/22 16:56:22 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/22 22:59:19 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/19 15:43:14 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/19 15:45:11 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int		ft_strlen(char *src)
-{
-	unsigned int 	i;
+#ifndef STRING_H
+# define STRING_H
 
-	i = 0;
-	while (src[i])
-	{
-		i += 1;
-	}
-	return (i);
-}
+char					*ft_strdup(char *str);
 
-char	*ft_strdup(char *src)
-{
-	char			*out;
-	unsigned int	i;
-	unsigned int	src_len;
+int						ft_is_space(char c);
 
-	i = 0;
-	src_len = ft_strlen(src);
-	out = malloc(src_len * sizeof(char));
-	if (!out)
-		return (0);
-	while (src[i])
-	{
-		out[i] = src[i];
-		i += 1;
-	}
-	out[i] = '\0';
-	return (out);
-}
+char					*ft_trim_begin(char *str);
+
+int						ft_is_number(char c);
+
+unsigned long long		ft_atoi(char *nbr);
+
+#endif

@@ -1,44 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strdup.c                                      .::    .:/ .      .::   */
+/*   square.h                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/22 16:56:22 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/22 22:59:19 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/20 18:00:01 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/20 20:13:57 by hmarlin     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int		ft_strlen(char *src)
+#ifndef SQUARE_H
+# define SQUARE_H
+
+typedef struct	s_square
 {
-	unsigned int 	i;
+	int			x;
+	int			y;
+	int			l;
+}				t_square;
 
-	i = 0;
-	while (src[i])
-	{
-		i += 1;
-	}
-	return (i);
-}
+t_square		*ft_create_square(int x, int y, int l);
 
-char	*ft_strdup(char *src)
-{
-	char			*out;
-	unsigned int	i;
-	unsigned int	src_len;
-
-	i = 0;
-	src_len = ft_strlen(src);
-	out = malloc(src_len * sizeof(char));
-	if (!out)
-		return (0);
-	while (src[i])
-	{
-		out[i] = src[i];
-		i += 1;
-	}
-	out[i] = '\0';
-	return (out);
-}
+#endif

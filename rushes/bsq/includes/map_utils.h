@@ -1,44 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strdup.c                                      .::    .:/ .      .::   */
+/*   map_utils.h                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/22 16:56:22 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/22 22:59:19 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/21 21:50:41 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/21 22:08:17 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int		ft_strlen(char *src)
-{
-	unsigned int 	i;
+#ifndef MAP_UTILS_H
+# define MAP_UTILS_H
+# include "map.h"
 
-	i = 0;
-	while (src[i])
-	{
-		i += 1;
-	}
-	return (i);
-}
+int		ft_is_case(char c, t_map *map);
 
-char	*ft_strdup(char *src)
-{
-	char			*out;
-	unsigned int	i;
-	unsigned int	src_len;
+int		ft_case(char c, t_map *map);
 
-	i = 0;
-	src_len = ft_strlen(src);
-	out = malloc(src_len * sizeof(char));
-	if (!out)
-		return (0);
-	while (src[i])
-	{
-		out[i] = src[i];
-		i += 1;
-	}
-	out[i] = '\0';
-	return (out);
-}
+short	**clone(short **cells, t_map *map);
+
+short	min(short a, short b, short c);
+#endif

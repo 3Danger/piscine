@@ -1,44 +1,22 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strdup.c                                      .::    .:/ .      .::   */
+/*   map_o.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/08/22 16:56:22 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/22 22:59:19 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/08/21 23:38:01 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/08/21 23:38:57 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-int		ft_strlen(char *src)
-{
-	unsigned int 	i;
+#ifndef MAP_O_H
+# define MAP_O_H
+# include "map.h"
 
-	i = 0;
-	while (src[i])
-	{
-		i += 1;
-	}
-	return (i);
-}
+void		set_map(t_map *map, char c, char d, char e);
 
-char	*ft_strdup(char *src)
-{
-	char			*out;
-	unsigned int	i;
-	unsigned int	src_len;
+int			ft_fill_map(char *map_buffer, t_map *map);
 
-	i = 0;
-	src_len = ft_strlen(src);
-	out = malloc(src_len * sizeof(char));
-	if (!out)
-		return (0);
-	while (src[i])
-	{
-		out[i] = src[i];
-		i += 1;
-	}
-	out[i] = '\0';
-	return (out);
-}
+#endif
