@@ -11,60 +11,50 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 int		ft_strcmp(char *s1, char *s2)
 {
-	unsigned int	i;
+	int	i;
 
-	i = 0;
-	while (s1[i] == s2[i])
-	{
-		if (!s1[i])
-			return (0);
-		i += 1;
-	}
+	i = -1;
+	while (!++i || (s1[i] == s2[i] && s1[i] && s2[i]))
+		;
 	return (s1[i] - s2[i]);
 }
 
-void	bubul(char **tab, int n)
+void		ft_putarg(char *str)
 {
-	int 	i;
-	int		j;
-	char	*t;
+	int i;
 
-	i = 0;
-	while (i < n)
-	{
-		j = 0;
-		while (j < n - 1)	
-		{
-			if (strcmp(tab[i], tab[i + 1]) < 0)
-			{
-				t = tab [i + 1];
-				tab[i + 1] = tab[i];
-				tab[i] = t;
-			}
-		}
-	}
+	i = -1;
+	while (str[++i] != '\0')
+		write(1, &str[i], 1);
+	write(1, "\n", 1);
 }
 
 int		main(int argc, char **argv)
 {
-	unsigned int	i;
-	unsigned int	y;
-	char			*toto[argc - 1];
-	char			*swp;
+	int		i;
+	char		*swap;
+	int		exit;
 
-
-	i = 1;
-	while (1 < argc)
+	exit = 0;
+	while (!exit)
 	{
-		toto[i - 1] = argv[i];
-		i += 1;
+		i = 0;
+		exit = 1;
+		while (++i < argc - 1)
+			if (0 < ft_strcmp(argv[i], argv[i + 1]))
+			{
+				swap = argv[i];
+				argv[i] = argv[i + 1];
+				argv[i + 1] = swap;
+				exit = 0;
+			}
 	}
-	bubul(argv, argc);
 	i = 0;
-	while (i < argc)
-	{
-		printf("%s", toto[i]);
-	}
+	while (++i < argc)
+		ft_putarg(argv[i]);
+	return (0);
 }
